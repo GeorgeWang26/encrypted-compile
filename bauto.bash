@@ -12,7 +12,7 @@ for d in $ws/src/*/ ; do
     echo -e "\n\n---------------------\n$d"
     if [[ -e $d/CMakeLists.txt ]]; then
         echo "this is C++ package"
-        sudo rm -r $d
+        rm -rf $d
 
     elif [[ -e $d/setup.py ]]; then
         cd $d   # this is absolute path ws/src/pkg
