@@ -18,6 +18,6 @@ rm -rf tmp
 
 ## Clean up
 1. Navigate to ros2 workspace, remove backed up source files in backup/ after all modules are tested to be working. `rm -r backup/`
-2. Remove aes related files and the auto script. `rm aes* compile.py bauto.bash README.md
+2. Remove aes related files and the auto script. `rm aes* compile.py bauto.bash README.md`
 
 Now the device is ready for shipping.
