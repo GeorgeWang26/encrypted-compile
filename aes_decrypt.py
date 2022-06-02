@@ -6,7 +6,7 @@ from getmac import get_mac_address as gma
 import subprocess
 
 
-file_location = "/data.encrypted"
+file_location = "/data/encrypted"
 
 def get_password():
     s = subprocess.Popen("sudo dmidecode -t system | grep UUID", shell=True, stdout=subprocess.PIPE).stdout.read()
