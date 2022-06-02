@@ -8,7 +8,7 @@ import subprocess
 
 
 data = "WHJLQJH:OIE@*(#_!*$!@U$B!@Y$_(*!@&JHJ#K!B#I!@*)(#"
-file_location = "/data.encrypted"
+file_location = "/data/encrypted"
 
 def get_password():
     s = subprocess.Popen("sudo dmidecode -t system | grep UUID", shell=True, stdout=subprocess.PIPE).stdout.read()
