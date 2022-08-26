@@ -26,7 +26,7 @@ sudo mkdir /data    # if /data doesn't exist yet, this will be used to store enc
 6. make sure Dockerfile is deleted before shipping
 
 ## Clean up
-1. Navigate to ros2 workspace, remove backed up source files in backup/ after all modules are tested to be working. `rm -r backup/ build/temp*`
+1. Navigate to ros2 workspace, remove backed up source files in backup/ after all modules are tested to be working. `rm -r backup/ build/temp* compile_python encryption`
 2. Remove aes related files and the auto script. `rm aes* compile.py bauto.bash README.md requirements.txt`
 
 Now the device is ready for shipping.
