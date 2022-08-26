@@ -18,7 +18,7 @@ mv ros2_autocompile/* ./
 rm -rf ros2_autocompile
 pip3 install -r requirements.txt
 
-sudo mkdir /data    # if /data doesn't exist yet
+sudo mkdir /data    # if /data doesn't exist yet, this will be used to store encrypted result
 ```
 3. generate device specific encrypted data for verification. `sudo python3 aes_encrypt.py` **NOTE: this should run on host, not in container**
 4. generate .so library file for decryption. `python3 aes_compile.py build_ext --inplace`
