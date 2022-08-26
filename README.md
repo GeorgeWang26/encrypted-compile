@@ -13,7 +13,7 @@ x86: docker run -v /data:/data --privileged --network host img
 ## Instruction
 1. navigate to your ros2 workspace and clone the repo, make sure all files are in ws/
 ```
-git clone https://github.com/indro-robotics/ros2_autocompile.git
+git clone https://github.com/GeorgeWang26/encrypted-compile.git
 mv ros2_autocompile/* ./
 rm -rf ros2_autocompile
 pip3 install -r requirements.txt
