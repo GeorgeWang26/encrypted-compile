@@ -13,14 +13,15 @@ x86: docker run -v /data:/data --privileged --network host img
 ## Instruction
 navigate to your ros2 workspace and clone the repo, make sure all files are in ws/
 ```
-git clone https://github.com/indro-robotics/ros2_autocompile.git tmp/
-mv tmp/* ./
-rm -rf tmp
+git clone https://github.com/indro-robotics/ros2_autocompile.git
+mv ros2_autocompile/* ./
+rm -rf ros2_autocompile
 pip3 install -r requirements.txt
 ```
 3. generate device specific encrypted data for verification. `python3 aes_encrypt.py` **NOTE: this should run on host, not in container**
 4. generate .so library file for decryption. `python3 aes_compile.py build_ext --inplace`
 5. run the auto compile script. `sudo bash bauto.bash`
+6. make sure Dockerfile is deleted before shipping
 
 ## Clean up
 1. Navigate to ros2 workspace, remove backed up source files in backup/ after all modules are tested to be working. `rm -r backup/ build/temp*`
