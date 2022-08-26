@@ -3,7 +3,7 @@ This script will remove all the cpp packages from the workspace. For Python pack
 
 ## Requirement
 1. map volume `/data:/data`, this will be the place to store the encrypted verification data at `/data/encrypted`. With mapped volume, this data will stay the same in future updates when using new containlers.
-2. map volume `/proc/device-tree:/Indro` when on arm64 (ie: jetson)
+2. map volume `/proc/device-tree:/Indro:ro` when on arm64 (ie: jetson) Must make this mounted volume read only since they are crucial system files on host machine.
 
 ## Instruction
 1. install all python dependencies for encryption and compiling. `pip3 install setuptools cython pycryptodome getmac`
