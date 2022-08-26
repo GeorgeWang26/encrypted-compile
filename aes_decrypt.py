@@ -23,9 +23,9 @@ def get_password():
     else:
         print("===================== ERROR: unrecognized cpu archetecture =====================")
         quit()
-    # pwd = gma() + serial + uuid
+    pwd = gma() + serial + uuid
+    # pwd = serial + uuid
     # print("password:", pwd)
-    pwd = serial + uuid
     return pwd
 
 def decrypt():
