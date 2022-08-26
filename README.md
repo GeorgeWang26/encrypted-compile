@@ -11,14 +11,16 @@ arm64: docker run -v /data:/data /proc/device-tree:/Indro:ro --network host img
 x86: docker run -v /data:/data --privileged --network host img
 ```
 ## Instruction
-navigate to your ros2 workspace and clone the repo, make sure all files are in ws/
+1. navigate to your ros2 workspace and clone the repo, make sure all files are in ws/
 ```
 git clone https://github.com/indro-robotics/ros2_autocompile.git
 mv ros2_autocompile/* ./
 rm -rf ros2_autocompile
 pip3 install -r requirements.txt
+
+sudo mkdir /data    # if /data doesn't exist yet
 ```
-3. generate device specific encrypted data for verification. `python3 aes_encrypt.py` **NOTE: this should run on host, not in container**
+3. generate device specific encrypted data for verification. `sudo python3 aes_encrypt.py` **NOTE: this should run on host, not in container**
 4. generate .so library file for decryption. `python3 aes_compile.py build_ext --inplace`
 5. run the auto compile script. `sudo bash bauto.bash`
 6. make sure Dockerfile is deleted before shipping
