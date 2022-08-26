@@ -1,4 +1,5 @@
 #!/bin/bash
+source /opt/rps/foxy/setup.bash
 colcon build
 ws=$(pwd)
 echo -e "\n\n----------------------------\n$ws"
