@@ -14,7 +14,7 @@ file_location = "/data/encrypted"
 def get_password():
     cpu_archetecture = subprocess.Popen("uname -m", shell=True, stdout=subprocess.PIPE).stdout.read().decode()[:-1]
     if cpu_archetecture == "aarch64":
-        device_tree = "proc/device-tree/"
+        device_tree = "/proc/device-tree/"
         if path.exists("/Indro"):
             device_tree = "/Indro/"
         serial = subprocess.Popen("cat " + device_tree + "serial-number", shell=True, stdout=subprocess.PIPE).stdout.read().decode()[:-1]
