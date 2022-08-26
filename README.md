@@ -1,5 +1,5 @@
 # ROS2 Autocompile
-This script will remove all the cpp packages from the workspace. For Python packages, verification script will be added to the beginning of all files and compiled. A python wrapper will be created for each source file, and the source code will be moved to ws/backup.
+This script will remove all the cpp packages from the workspace. For Python packages, id verification will be added to the beginning of all source files and compiled. A python wrapper will be created for each source file, and the source code will be moved to ws/backup.
 
 ## Requirement
 1. map volume `/data:/data`, this will be the place to store the encrypted verification data at `/data/encrypted`. With mapped volume, this data will stay the same in future updates when using new containlers.
