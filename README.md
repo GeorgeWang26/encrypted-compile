@@ -2,7 +2,8 @@
 This script will remove all the cpp packages from the workspace. For Python packages, verification script will be added to the beginning of all files and compiled. A python wrapper will be created for each source file, and the source code will be moved to ws/backup.
 
 ## Requirement
-map /data in the container to somewhere on host machine, this will be the place to store the encrypted verification data at /data/encrypted. With volume, this data will stay the same in future updates with new containers.
+1. map volume `/data:/data`, this will be the place to store the encrypted verification data at `/data/encrypted`. With mapped volume, this data will stay the same in future updates when using new containlers.
+2. map volume `/proc/device-tree:/Indro` when on arm64 (ie: jetson)
 
 ## Instruction
 1. install all python dependencies for encryption and compiling. `pip3 install setuptools cython pycryptodome getmac`
