@@ -8,7 +8,7 @@ This script will remove all the cpp packages from the workspace. For Python pack
 4. run docker with `--network host` to get host mac address inside docker
 ```
 arm64: docker run -v /data:/data /proc/device-tree:/Indro:ro --network host img
-x86: docker run -v /data:/dara --priviliged --network host img
+x86: docker run -v /data:/data --privileged --network host img
 ```
 ## Instruction
 navigate to your ros2 workspace and clone the repo, make sure all files are in ws/
