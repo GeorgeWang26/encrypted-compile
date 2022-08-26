@@ -1,4 +1,4 @@
-etuptools
+setuptools
 cython
 pycryptodome
 getmac
