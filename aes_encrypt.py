@@ -11,9 +11,17 @@ data = "WHJLQJH:OIE@*(#_!*$!@U$B!@Y$_(*!@&JHJ#K!B#I!@*)(#"
 file_location = "/data/encrypted"
 
 def get_password():
-    s = subprocess.Popen("sudo dmidecode -t system | grep UUID", shell=True, stdout=subprocess.PIPE).stdout.read()
-    s = s.decode()[7:-1]
-    pwd = gma() + s
+    cpu_archetecture = subprocess.Popen("uname -m", shell=True, stdout=subprocess.PIPE).stdout.read().decode()[:-1]
+    if cpu_archetecture == "aarch64":
+        serial = subprocess.Popen("cat /proc/device-tree/serial-number", shell=True, stdout=subprocess.PIPE).stdout.read().decode()[:-1]
+        uuid = subprocess.Popen("cat /proc/device-tree/chosen/uuid", shell=True, stdout=subprocess.PIPE).stdout.read().decode()[:-1]
+    elif cpu_archetecture == "x86_64":
+        serial = subprocess.Popen("sudo dmidecode -t system | grep Serial", shell=True, stdout=subprocess.PIPE).stdout.read().decode()[16:-1]
+        uuid = subprocess.Popen("sudo dmidecode -t system | grep UUID", shell=True, stdout=subprocess.PIPE).stdout.read().decode()[7:-1]
+    else:
+        print("===================== ERROR: unrecognized cpu archetecture =====================")
+        quit()
+    pwd = gma() + serial + uuid
     print("password:", pwd)
     return pwd
 
@@ -22,7 +30,6 @@ def encrypt():
     key = scrypt(get_password(), salt, key_len=32, N=2**20, r=8, p=1)  # work facrtor N can be from 2^14 to 2^20, change based on time cost
     cipher = AES.new(key, AES.MODE_GCM)
     ciphertext, tag = cipher.encrypt_and_digest(data.encode())
-    print("ciphertext len:", len(ciphertext))
     with open(file_location, "wb") as f:
         f.writelines([salt, cipher.nonce, ciphertext, tag])
         f.close()
