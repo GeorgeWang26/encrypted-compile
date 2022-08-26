@@ -13,7 +13,7 @@ git clone https://github.com/indro-robotics/ros2_autocompile.git tmp/
 mv tmp/* ./
 rm -rf tmp
 ```
-3. generate device specific encrypted data for verification. `python3 aes_encrypt.py`
+3. generate device specific encrypted data for verification. `python3 aes_encrypt.py` **NOTE: this should run on host, not in container**
 4. generate .so library file for decryption. `python3 aes_compile.py build_ext --inplace`
 5. run the auto compile script. `sudo bash bauto.bash`
 
