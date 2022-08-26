@@ -7,7 +7,7 @@ from getmac import get_mac_address as gma
 import subprocess
 
 
-data = "WHJLQJH:OIE@*(#_!*$!@U$B!@Y$_(*!@&JHJ#K!B#I!@*)(#"
+data = "Hello ambitious and dedicated hackers, is knowing the plain text going to help in this case? -George.W"
 file_location = "/data/encrypted"
 
 def get_password():
